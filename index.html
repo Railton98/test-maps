@@ -46,22 +46,13 @@
 					directionsDisplay.setMap(map);
 				}
 			});
-
-			// addMarker({
-			// 	coords:{lat:-6.778816, lng:-43.033625}
-			// });
-			// addMarker({
-			// 	coords:{lat:-6.783035, lng:-43.025986}
-			// });
-			// addMarker({
-			// 	coords:{lat:-6.785720, lng:-43.042980}
-			// });
-
+			
 			// Add Marker function
 			function addMarker (props) {
 				var marker = new google.maps.Marker({
 					position: props.coords,
-					map: map
+					map: map,
+					icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
 				});
 			}
 		}
