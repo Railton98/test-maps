@@ -2,9 +2,9 @@ function initMap() {
   var directionsService = new google.maps.DirectionsService();
   var directionsDisplay = new google.maps.DirectionsRenderer({
     suppressMarkers : true,
-    // polylineOptions: {
-    //   strokeColor: "transparent"
-    // }
+    polylineOptions: {
+      strokeColor: "transparent"
+    }
   });
   var options = {
     zoom:14,
@@ -54,10 +54,10 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
       // add custom markers
       var route = response.routes[0];
         // start marker
-      addMarker(route.legs[0].start_location, markerCounter++, 'img/markerBlue.png');
+      addMarker(route.legs[0].start_location, markerCounter++, 'img/markerBlue.png', 'Info aqui...');
         // the rest
       for (var i = 0; i < route.legs.length; i++) {
-        addMarker(route.legs[i].end_location, markerCounter++, 'img/markerBlue.png');
+        addMarker(route.legs[i].end_location, markerCounter++, 'img/markerBlue.png', 'Lorem Info');
       }
     } else {
 			window.alert('Directions request failed due to ' + status);
@@ -94,10 +94,10 @@ function calculateAndDisplayRouteTwo(directionsService, directionsDisplay) {
       // add custom markers
       var routeTwo = response.routes[0];
         // start marker
-      addMarker(routeTwo.legs[0].start_location, markerCounterTwo++, 'img/markerRed.png');
+      addMarker(routeTwo.legs[0].start_location, markerCounterTwo++, 'img/markerRed.png', 'Lorem ipsum dolor');
         // the rest
       for (var i = 0; i < routeTwo.legs.length; i++) {
-        addMarker(routeTwo.legs[i].end_location, markerCounterTwo++, 'img/markerRed.png');
+        addMarker(routeTwo.legs[i].end_location, markerCounterTwo++, 'img/markerRed.png', 'Lorem ipsum wwwwwww');
       }
     } else {
 			window.alert('Directions request failed due to ' + status);
@@ -105,19 +105,18 @@ function calculateAndDisplayRouteTwo(directionsService, directionsDisplay) {
   });
 }
 
-var contentString = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.';
-
-        var infowindow = new google.maps.InfoWindow({
-          content: contentString
-        });
-
-  function addMarker(position, i, icon) {
+  function addMarker(position, i, icon, contentString) {
     var marker = new google.maps.Marker({
       icon: icon,
       position: position,
       map: map,
-      title: 'Hello World!'
+      // title: 'Hello World!'
     });
+
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
     marker.addListener('click', function() {
       infowindow.open(map, marker);
     });
