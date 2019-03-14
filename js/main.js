@@ -1,4 +1,5 @@
 function initMap() {
+  console.log(user);
   var directionsService = new google.maps.DirectionsService();
   var directionsDisplay = new google.maps.DirectionsRenderer({
     suppressMarkers : true,
@@ -54,10 +55,10 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
       // add custom markers
       var route = response.routes[0];
         // start marker
-      addMarker(route.legs[0].start_location, markerCounter++, 'img/markerBlue.png', 'Info aqui...');
+      addMarker(route.legs[0].start_location, markerCounter++, 'img/markerBlue.png', user[0]);
         // the rest
       for (var i = 0; i < route.legs.length; i++) {
-        addMarker(route.legs[i].end_location, markerCounter++, 'img/markerBlue.png', 'Lorem Info');
+        addMarker(route.legs[i].end_location, markerCounter++, 'img/markerBlue.png', user[i+1]);
       }
     } else {
 			window.alert('Directions request failed due to ' + status);
@@ -94,10 +95,10 @@ function calculateAndDisplayRouteTwo(directionsService, directionsDisplay) {
       // add custom markers
       var routeTwo = response.routes[0];
         // start marker
-      addMarker(routeTwo.legs[0].start_location, markerCounterTwo++, 'img/markerRed.png', 'Lorem ipsum dolor');
+      addMarker(routeTwo.legs[0].start_location, markerCounterTwo++, 'img/markerRed.png', user[0]);
         // the rest
       for (var i = 0; i < routeTwo.legs.length; i++) {
-        addMarker(routeTwo.legs[i].end_location, markerCounterTwo++, 'img/markerRed.png', 'Lorem ipsum wwwwwww');
+        addMarker(routeTwo.legs[i].end_location, markerCounterTwo++, 'img/markerRed.png', user[i+1]);
       }
     } else {
 			window.alert('Directions request failed due to ' + status);

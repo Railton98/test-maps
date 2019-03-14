@@ -69,6 +69,14 @@
         <input type="submit" id="submitTwo">
       </div>
     </div>
+    <script>
+    var user = <?php echo json_encode([
+      'title one',
+      'title two',
+      'title three',
+      'title four',
+    ]); ?>;
+    </script>
     <script src="js/main.js" charset="utf-8"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPwF1R-ehne8ti8s8JAAdJ1SfvV2JC7z8&callback=initMap">
     </script>
